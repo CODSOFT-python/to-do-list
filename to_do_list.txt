@@ -1,0 +1,45 @@
+
+todo_list = []
+
+def add_item(item):
+    todo_list.append(item)
+    print(f"Added: {item}")
+
+def display_list():
+    if len(todo_list) == 0:
+        print("Your to-do list is empty.")
+    else:
+        print("Your to-do list:")
+        for index, item in enumerate(todo_list, start=1):
+            print(f"{index}. {item}")
+
+def remove_item(index):
+    if 1 <= index <= len(todo_list):
+        removed_item = todo_list.pop(index - 1)
+        print(f"Removed: {removed_item}")
+    else:
+        print("Invalid index. Please choose a valid item to remove.")
+
+while True:
+    print("\nOptions:")
+    print("1. Add an item to the to-do list")
+    print("2. Display the to-do list")
+    print("3. Remove an item from the to-do list")
+    print("4. Quit")
+    
+    choice = input("Enter your choice (1/2/3/4): ")
+    
+    if choice == "1":
+        item = input("Enter the to-do item: ")
+        add_item(item)
+    elif choice == "2":
+        display_list()
+    elif choice == "3":
+        display_list()
+        index = int(input("Enter the index of the item to remove: "))
+        remove_item(index)
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please select a valid option.")
